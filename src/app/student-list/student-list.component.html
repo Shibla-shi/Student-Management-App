@@ -1,0 +1,19 @@
+<!-- student-list.component.html -->
+<div *ngIf="students.length > 0">
+    <h2>Student List</h2>
+    <ul>
+      <li *ngFor="let student of students">
+        <strong>Name:</strong> {{ student.name }}<br>
+        <strong>Course:</strong> {{ student.course }}<br>
+        <strong>Total Marks:</strong> {{ student.totalMarks }}<br>
+        <strong>Grade:</strong> {{ calculateGrade(student.totalMarks) }}<br>
+        <div [ngClass]="getGradeClass(student.totalMarks)">
+          {{ calculateGrade(student.totalMarks) }}
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="students.length == 0">
+    <p>No students submitted yet.</p>
+  </div>
+  
